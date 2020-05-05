@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 public class Logger 
 {
 	private volatile static Logger logger;
+	private String filename;
 	private File outFile;
 	private PrintWriter out;
 	
@@ -31,7 +32,8 @@ public class Logger
 	
 	private Logger() throws FileNotFoundException
 	{
-		this.outFile = new File("RoachMotelLog.txt");
+		this.filename = "roach_motel_log.txt";
+		this.outFile = new File(filename);
 		out = new PrintWriter(outFile);
 	}
 	
@@ -40,5 +42,9 @@ public class Logger
 		out.println(message);
 	}
 	
+	public String getFilename()
+	{
+		return this.filename;
+	}
 	
 }
