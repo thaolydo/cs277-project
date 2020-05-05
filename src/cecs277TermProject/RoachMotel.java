@@ -50,13 +50,12 @@ public class RoachMotel {
 		return result;
 	}
 
-	public void checkOut(RoachColony roachColony, PaymentStrategy paymentMethod) {
+	public void checkOut(RoachColony roachColony, PaymentStrategy paymentMethod, int numDays) {
 		// TODO: [Tyler] Implement logging this event here
 		availableRooms.add(occupiedRooms.remove(roachColony));
 
-		// TODO: [Tyler] Implement payment
-		// in progress, needs a way to calculate cost from amenities and days spent in the room - tyler
-		//this.pay(paymentMethod, roachColony, numDays);
+
+		this.pay(paymentMethod, roachColony, numDays);
 		
 	}
 	
@@ -65,10 +64,12 @@ public class RoachMotel {
 	 * @param paymentMethod  A payment method (RoachPal or MasterRoach) passed in through the main method.
 	 * @param cost The total cost to be paid.
 	 */
-	private void pay(PaymentStrategy paymentMethod, RoachColony colony, int numDays)
+	private String pay(PaymentStrategy paymentMethod, RoachColony colony, int numDays)
 	{
-		//Motel Room will need to tell how much to pay
-		//paymentMethod.pay(cost);
+		Room paidRoom = occupiedRooms.get(colony);
+		// in progress, needs a way to calculate cost from amenities - tyler
+		double cost = paidRoom.getCost() * numDays;
+		return paymentMethod.pay(cost);
 	}
 
 	@Override
