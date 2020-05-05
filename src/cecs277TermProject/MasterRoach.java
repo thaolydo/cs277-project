@@ -1,7 +1,21 @@
 package cecs277TermProject;
 
-public class MasterRoach implements PaymentStrategy{
+public class MasterRoach implements PaymentStrategy
+{
 
+	private String name; 
+	private String cardNumber;
+	private String cvv;
+	private String expirationDate;
+	
+	public MasterRoach(String name, String cardNumber, String cvv, String expirationDate)
+	{
+		this.name = name;
+		this.cardNumber = cardNumber;
+		this.cvv = cvv;
+		this.expirationDate = expirationDate;
+	}
+	
 	/**
 	 * Payment method by MasterRoach card
 	 * @return a message detailing payment method.
