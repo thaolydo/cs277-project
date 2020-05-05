@@ -45,6 +45,7 @@ public class RoachMotel {
 		if (availableRooms.isEmpty()) {
 			return result + "No available room.";
 		}
+
 		Room room = availableRooms.poll();
 
 		// TODO: [Gust] Implement decorator pattern here for amenities before associating the colony with the room
@@ -57,8 +58,6 @@ public class RoachMotel {
 	public void checkOut(RoachColony roachColony, PaymentStrategy paymentMethod, int numDays) {
 		// TODO: [Tyler] Implement logging this event here
 		availableRooms.add(occupiedRooms.remove(roachColony));
-
-
 		this.pay(paymentMethod, roachColony, numDays);
 		
 	}
@@ -73,7 +72,25 @@ public class RoachMotel {
 		Room paidRoom = occupiedRooms.get(colony);
 		// in progress, needs a way to calculate cost from amenities - tyler
 		double cost = paidRoom.getCost() * numDays;
+		logCheckOut(paymentMethod, colony, numDays, this.logger);
 		return paymentMethod.pay(cost);
+	}
+	
+	private void logCheckIn(RoachColony colony, Logger log)
+	{
+		Room loggedRoom = occupiedRooms.get(colony);
+		
+		log.log("Successfully Checked In: Colony " + colony + "checking into " + loggedRoom + "with amenities [PLACEHOLDER]");
+	}
+	
+	private void logCheckOut(PaymentStrategy paymentMethod, RoachColony colony, int numDays, Logger log)
+	{
+		Room loggedRoom = occupiedRooms.get(colony);
+		
+		log.log("Successfully Checked Out: Colony" + colony + " checking out of " + loggedRoom + " with amenities [PLACEHOLDER] "
+				+ "cost: " + (loggedRoom.getCost() * numDays) + " using " + paymentMethod);
+		
+		
 	}
 
 	@Override
