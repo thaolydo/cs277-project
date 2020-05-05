@@ -22,11 +22,11 @@ public class RoachMotel {
 	
 
 	// TODO: [Gust] Make this constructor private and use it in Singleton pattern
-	public RoachMotel(String name, int capacity, File outFile) throws FileNotFoundException {
+	public RoachMotel(String name, int capacity) throws FileNotFoundException {
 		this.name = name;
 		this.capacity = capacity;
 		this.occupiedRooms = new HashMap<>();
-		this.logger = new Logger(outFile);
+		this.logger = logger.getLogger();
 
 		// Create Rooms and add them to motel
 		availableRooms = new LinkedList<>();

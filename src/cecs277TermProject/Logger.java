@@ -9,13 +9,29 @@ import java.io.PrintWriter;
  */
 public class Logger 
 {
-	
+	private volatile static Logger logger;
 	private File outFile;
 	private PrintWriter out;
 	
-	public Logger(File outFile) throws FileNotFoundException
+	public Logger getLogger() throws FileNotFoundException
 	{
-		this.outFile = outFile;
+		if (Logger.logger == null)
+		{
+			synchronized(Logger.class)
+			{
+				if(Logger.logger == null)
+				{
+					Logger.logger = new Logger();
+				}
+			}
+		}
+		return Logger.logger;
+	}
+	
+	
+	private Logger() throws FileNotFoundException
+	{
+		this.outFile = new File("RoachMotelLog.txt");
 		out = new PrintWriter(outFile);
 	}
 	
