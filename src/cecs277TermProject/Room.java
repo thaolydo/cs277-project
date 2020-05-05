@@ -10,6 +10,7 @@ public abstract class Room {
         this.type = type;
     }
 
+
     public abstract double getCost();
 
     @Override

@@ -50,13 +50,13 @@ public class RoachMotel {
 		return result;
 	}
 
-	public void checkOut(RoachColony roachColony) {
+	public void checkOut(RoachColony roachColony, PaymentStrategy paymentMethod) {
 		// TODO: [Tyler] Implement logging this event here
 		availableRooms.add(occupiedRooms.remove(roachColony));
 
 		// TODO: [Tyler] Implement payment
-		// I feel like payment and logging methods should be called outside of here, otherwise we need add some member variables to these in order to store
-		// which payment methods go with which colony.  I'm thinking something like the Strategy Lab we did.
+		// in progress, needs a way to calculate cost from amenities and days spent in the room - tyler
+		//this.pay(paymentMethod, roachColony, numDays);
 		
 	}
 	
@@ -65,9 +65,10 @@ public class RoachMotel {
 	 * @param paymentMethod  A payment method (RoachPal or MasterRoach) passed in through the main method.
 	 * @param cost The total cost to be paid.
 	 */
-	public void pay(PaymentStrategy paymentMethod, double cost)
+	private void pay(PaymentStrategy paymentMethod, RoachColony colony, int numDays)
 	{
-		paymentMethod.pay(cost);
+		//Motel Room will need to tell how much to pay
+		//paymentMethod.pay(cost);
 	}
 
 	@Override
