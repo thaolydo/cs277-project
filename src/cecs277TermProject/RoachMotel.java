@@ -25,30 +25,34 @@ public class RoachMotel {
 		this.capacity = capacity;
 		this.occupiedRooms = new HashMap<>();
 
-		// TODO: [Ly] Use factory pattern here to create rooms
+		// Create Rooms and add them to motel
 		availableRooms = new LinkedList<>();
-		availableRooms.add(new Room(101, RoomType.BASIC));
-		availableRooms.add(new Room(102, RoomType.BASIC));
-		availableRooms.add(new Room(103, RoomType.BASIC));
-		availableRooms.add(new Room(104, RoomType.QUEEN));
-		availableRooms.add(new Room(105, RoomType.SUITE));
-		availableRooms.add(new Room(106, RoomType.KING));
+		availableRooms.add(RoomFactory.createRoom(101, RoomType.BASIC));
+		availableRooms.add(RoomFactory.createRoom(102, RoomType.BASIC));
+		availableRooms.add(RoomFactory.createRoom(103, RoomType.BASIC));
+		availableRooms.add(RoomFactory.createRoom(104, RoomType.QUEEN));
+		availableRooms.add(RoomFactory.createRoom(105, RoomType.SUITE));
+		availableRooms.add(RoomFactory.createRoom(106, RoomType.KING));
 	}
 
 	// TODO: [Gust] Add a parameter for list of amenities
-	public void checkIn(RoachColony roachColony) {
+	public String checkIn(RoachColony roachColony) {
 		// TODO: [Tyler] Implement logging this event here
-		// TODO: [Ly] Implement checkIn validation
-		System.out.printf("Checking in: %s\n", roachColony);
+		String result = String.format("Checking in: %s\n", roachColony);
+		if (availableRooms.isEmpty()) {
+			return result + "No available room.";
+		}
 		Room room = availableRooms.poll();
 
 		// TODO: [Gust] Implement decorator pattern here for amenities before associating the colony with the room
 		occupiedRooms.put(roachColony, room);
+
+		result += "Successfully checking in";
+		return result;
 	}
 
 	public void checkOut(RoachColony roachColony) {
 		// TODO: [Tyler] Implement logging this event here
-		System.out.printf("Checking out: %s\n", roachColony);
 		availableRooms.add(occupiedRooms.remove(roachColony));
 
 		// TODO: [Tyler] Implement payment
