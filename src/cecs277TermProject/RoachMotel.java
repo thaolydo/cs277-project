@@ -1,5 +1,7 @@
 package cecs277TermProject;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -16,13 +18,15 @@ public class RoachMotel {
 	private Map<RoachColony, Room> occupiedRooms; // This is a map from customer -> room
 	private String name;
 	private int capacity; // This is a dummy variable because it's not used anywhere
+	private Logger logger;
 	
 
 	// TODO: [Gust] Make this constructor private and use it in Singleton pattern
-	public RoachMotel(String name, int capacity) {
+	public RoachMotel(String name, int capacity, File outFile) throws FileNotFoundException {
 		this.name = name;
 		this.capacity = capacity;
 		this.occupiedRooms = new HashMap<>();
+		this.logger = new Logger(outFile);
 
 		// Create Rooms and add them to motel
 		availableRooms = new LinkedList<>();

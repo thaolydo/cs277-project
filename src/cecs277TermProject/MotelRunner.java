@@ -1,10 +1,20 @@
 package cecs277TermProject;
 
+import java.io.FileNotFoundException;
+
 public class MotelRunner {
 
 	public static void main(String[] args) {
 		// Initialize the motel
-		RoachMotel motel = new RoachMotel("The only motel in town", 6); // TODO: Use Singleton pattern here
+		RoachMotel motel = null;
+		try
+		{
+			motel = new RoachMotel("The only motel in town", 6, null); // TODO: Use Singleton pattern here
+		}
+		catch(FileNotFoundException e)
+		{
+			System.out.println("File not found exception!");
+		}
 
 		// Roach colonies checking in/out
 		RoachColony colony1 = new RoachColony("First colony", 100);
