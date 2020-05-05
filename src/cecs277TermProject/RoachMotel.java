@@ -19,8 +19,19 @@ public class RoachMotel {
 	private String name;
 	private int capacity; // This is a dummy variable because it's not used anywhere
 
-	// TODO: [Gust] Make this constructor private and use it in Singleton pattern
-	public RoachMotel(String name, int capacity) {
+	// TODO: [Gust] Make this constructor private and use it in Singleton pattern 
+	
+	public static RoachMotel getRoachMotel() {
+		if (motel == null) {
+			synchronized (RoachMotel.class) {
+				if (motel == null) {
+					motel = new RoachMotel("The only roach motel",6);
+				}
+			}
+		}
+		return motel;
+	}
+	private RoachMotel(String name, int capacity) {
 		this.name = name;
 		this.capacity = capacity;
 		this.occupiedRooms = new HashMap<>();
@@ -35,13 +46,18 @@ public class RoachMotel {
 		availableRooms.add(new Room(106, RoomType.KING));
 	}
 
-	// TODO: [Gust] Add a parameter for list of amenities
+
+	//TODO: [Gust] Add a parameter for list of amenities
+	
 	public void checkIn(RoachColony roachColony) {
 		// TODO: [Tyler] Implement logging this event here
 		// TODO: [Ly] Implement checkIn validation
 		System.out.printf("Checking in: %s\n", roachColony);
 		Room room = availableRooms.poll();
 
+		
+		
+		
 		// TODO: [Gust] Implement decorator pattern here for amenities before associating the colony with the room
 		occupiedRooms.put(roachColony, room);
 	}
