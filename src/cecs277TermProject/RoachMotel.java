@@ -9,8 +9,6 @@ import java.util.Queue;
  * This is the Roach motel. It will use the Singleton design pattern. We will
  * set the capacity and name in the constructor.
  *
- * @author Tyler V
- *
  */
 public class RoachMotel {
 	private volatile static RoachMotel motel; // TODO: [Gust] Use this to implement Singleton pattern
@@ -18,6 +16,7 @@ public class RoachMotel {
 	private Map<RoachColony, Room> occupiedRooms; // This is a map from customer -> room
 	private String name;
 	private int capacity; // This is a dummy variable because it's not used anywhere
+	
 
 	// TODO: [Gust] Make this constructor private and use it in Singleton pattern
 	public RoachMotel(String name, int capacity) {
@@ -56,6 +55,19 @@ public class RoachMotel {
 		availableRooms.add(occupiedRooms.remove(roachColony));
 
 		// TODO: [Tyler] Implement payment
+		// I feel like payment and logging methods should be called outside of here, otherwise we need add some member variables to these in order to store
+		// which payment methods go with which colony.  I'm thinking something like the Strategy Lab we did.
+		
+	}
+	
+	/**
+	 * Will allow a colony to pay for the room upon checkout.  A payment method (RoachPal or MasterRoach) will be passed in through the main method.
+	 * @param paymentMethod  A payment method (RoachPal or MasterRoach) passed in through the main method.
+	 * @param cost The total cost to be paid.
+	 */
+	public void pay(PaymentStrategy paymentMethod, double cost)
+	{
+		paymentMethod.pay(cost);
 	}
 
 	@Override

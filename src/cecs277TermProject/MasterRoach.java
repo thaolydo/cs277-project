@@ -23,7 +23,7 @@ public class MasterRoach implements PaymentStrategy
 	@Override
 	public String pay(double cost) 
 	{
-		return "Paid $" + cost + "by MasterRoach card";
+		return "Paid $" + cost + "by MasterRoach card. Info: Name: " + name + " Number: " + cardNumber + " cvv: " + cvv + " Expiration Date: " + expirationDate + ".";
 	}
 
 }
