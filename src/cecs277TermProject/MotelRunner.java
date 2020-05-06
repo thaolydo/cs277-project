@@ -23,7 +23,9 @@ public class MotelRunner {
 			System.out.println(motel);
 			System.out.println();
 
-			//motel.checkOut(colony2);
+			
+			//When we decide to finish testing everything, this needs to have a payment method added as an argument. - Tyler
+			motel.checkOut(colony2);
 			System.out.println(motel);
 			System.out.println();
 

@@ -40,32 +40,28 @@ public class RoachMotel {
 
 	// TODO: [Gust] Add a parameter for list of amenities
 	public String checkIn(RoachColony roachColony) {
-		// TODO: [Tyler] Implement logging this event here
 		String result = String.format("Checking in: %s\n", roachColony);
+		logger.log(String.format("Colony %1$s attempting to check in.", roachColony));
 		if (availableRooms.isEmpty()) {
+			logger.log(String.format("Colony %1$s failed to check in, no available rooms.", roachColony));
 			return result + "No available room.";
 		}
-		logCheckIn(roachColony, this.logger);
-		// Logging should be mostly finished; just need room methods to be finished - Tyler
 		// TODO: [Ly] Implement checkIn validation
 		System.out.printf("Checking in: %s\n", roachColony);
 		Room room = availableRooms.poll();
-
-		// TODO: [Gust] Implement decorator pattern here for amenities before associating the colony with the room
 		occupiedRooms.put(roachColony, room);
+		logger.log(String.format("Successfully Checked In: Colony %1$s checking into %2$s", roachColony, occupiedRooms.get(roachColony)));
 
 		result += "Successfully checking in";
 		return result;
 	}
 
 	public void checkOut(RoachColony roachColony, PaymentStrategy paymentMethod, int numDays) {
-		// TODO: [Tyler] Implement logging this event here
-		this.logCheckOut(paymentMethod, roachColony, numDays, this.logger);
-		// Logging should be mostly finished; just need room methods to be finished - Tyler
+		logger.log(String.format("Successfully Checked Out: Colony %1$s checking out of %2$s cost: %3$s using %4$s", 
+					roachColony, occupiedRooms.get(roachColony), (occupiedRooms.get(roachColony).getCost() * numDays), paymentMethod));
 		System.out.printf("Checking out: %s\n", roachColony);
 		availableRooms.add(occupiedRooms.remove(roachColony));
-		this.pay(paymentMethod, roachColony, numDays);
-		
+		this.pay(paymentMethod, roachColony, numDays);	
 	}
 	
 	/**
@@ -80,22 +76,6 @@ public class RoachMotel {
 		double cost = paidRoom.getCost() * numDays;
 		//logCheckOut(paymentMethod, colony, numDays, this.logger);
 		return paymentMethod.pay(cost);
-	}
-	
-	private void logCheckIn(RoachColony colony, Logger log)
-	{
-		Room loggedRoom = occupiedRooms.get(colony);
-		
-		log.log(String.format("Successfully Checked In: Colony %1$s checking into %2$s", colony, loggedRoom));
-	}
-	
-	private void logCheckOut(PaymentStrategy paymentMethod, RoachColony colony, int numDays, Logger log)
-	{
-		Room loggedRoom = occupiedRooms.get(colony);
-		
-		log.log(String.format("Successfully Checked In: Colony %1$s checking into %2$s cost: %3$s using %4$s", 
-					colony, loggedRoom, (loggedRoom.getCost() * numDays), paymentMethod));
-	
 	}
 
 	@Override
