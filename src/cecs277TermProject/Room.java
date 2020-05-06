@@ -1,24 +1,43 @@
 package cecs277TermProject;
 
-public class Room {
-    protected int roomNumber;
-    protected RoomType type;
+public abstract class Room {
+    private int roomNumber;
+    private RoomType type;
+    private double baseRate;
 
     public Room(int roomNumber, RoomType type) {
         this.roomNumber = roomNumber;
-        this.type = type;
+        this.setType(type);
     }
+
+
+    public abstract double getCost();
+    
 
     @Override
     public String toString() {
         return String.format("%d", roomNumber);
     }
 
-	public  double getCost() {
-		return 0;
+
+	public int getRoomNumber() {
+		return this.roomNumber;
 	}
-    
 
-    
 
+	public RoomType getType() {
+		return this.type;
+	}
+
+	public void setType(RoomType type) {
+		this.type = type;
+	}
+
+	public double getBaseRate() {
+		return this.baseRate;
+	}
+
+	public void setBaseRate(double baseRate) {
+		this.baseRate = baseRate;
+	}
 }
