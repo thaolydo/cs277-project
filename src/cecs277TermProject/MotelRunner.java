@@ -10,7 +10,7 @@ public class MotelRunner {
 		try
 		{
 			// Initialize the motel
-			RoachMotel motel = new RoachMotel("The only motel in town", 6); // TODO: Use Singleton pattern here
+			RoachMotel motel = RoachMotel.getRoachMotel();  // TODO: Use Singleton pattern here UPDATE DONE
 
 			// Roach colonies checking in/out
 			RoachColony colony1 = new RoachColony("First colony", 100);
