@@ -1,5 +1,6 @@
 package cecs277TermProject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -17,6 +18,7 @@ public class RoachMotel {
 	private Queue<Room> availableRooms; // This is a list of available rooms
 	private Map<RoachColony, Room> occupiedRooms; // This is a map from customer -> room
 	private String name;
+	private double amenityCost;
 	private int capacity; // This is a dummy variable because it's not used anywhere
 
 	// TODO: [Gust] Make this constructor private and use it in Singleton pattern 
@@ -31,7 +33,7 @@ public class RoachMotel {
 		}
 		return motel;
 	}
-	private RoachMotel(String name, int capacity) {
+	private RoachMotel(String name, int capacity ) {
 		this.name = name;
 		this.capacity = capacity;
 		this.occupiedRooms = new HashMap<>();
@@ -49,18 +51,35 @@ public class RoachMotel {
 
 	//TODO: [Gust] Add a parameter for list of amenities
 	
-	public void checkIn(RoachColony roachColony) {
+	public void checkIn(RoachColony roachColony, ArrayList<MotelAmenities> Amenities) {
+		this.amenityCost = 0;
 		// TODO: [Tyler] Implement logging this event here
 		// TODO: [Ly] Implement checkIn validation
 		System.out.printf("Checking in: %s\n", roachColony);
+		for(MotelAmenities Amenity : Amenities) {
+		   Amenity.getDescription();
+		   this.amenityCost =+ Amenity.getCost();
+		}
 		Room room = availableRooms.poll();
-
-		
-		
-		
 		// TODO: [Gust] Implement decorator pattern here for amenities before associating the colony with the room
 		occupiedRooms.put(roachColony, room);
 	}
+
+	public void checkOut(RoachColony roachColony) {
+		// TODO: [Tyler] Implement logging this event here
+		System.out.printf("Checking out: %s\n", roachColony);
+		availableRooms.add(occupiedRooms.remove(roachColony));
+
+		// TODO: [Tyler] Implement payment
+	}
+
+	@Override
+	public String toString() {
+		return String.format("Motel(name=%s, availableRooms=%s, occupiedRooms=%s)", name, availableRooms, occupiedRooms);
+	}
+
+}
+
 
 	public void checkOut(RoachColony roachColony) {
 		// TODO: [Tyler] Implement logging this event here
