@@ -1,7 +1,21 @@
 package cecs277TermProject;
 
-public class MasterRoach implements PaymentStrategy{
+public class MasterRoach implements PaymentStrategy
+{
 
+	private String name; 
+	private String cardNumber;
+	private String cvv;
+	private String expirationDate;
+	
+	public MasterRoach(String name, String cardNumber, String cvv, String expirationDate)
+	{
+		this.name = name;
+		this.cardNumber = cardNumber;
+		this.cvv = cvv;
+		this.expirationDate = expirationDate;
+	}
+	
 	/**
 	 * Payment method by MasterRoach card
 	 * @return a message detailing payment method.
@@ -9,7 +23,13 @@ public class MasterRoach implements PaymentStrategy{
 	@Override
 	public String pay(double cost) 
 	{
-		return "Paid $" + cost + "by MasterRoach card";
+		return String.format("Paid $ %1$s by " + this.toString(), cost);
+	}
+	
+	@Override
+	public String toString()
+	{
+		return  String.format("MasterRoach card - Info: Name: %1$s Number: %2$s cvv: %3$s Expiration Date: %4$s.", name, cardNumber, cvv, expirationDate);
 	}
 
 }

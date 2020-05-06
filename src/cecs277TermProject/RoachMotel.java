@@ -1,5 +1,7 @@
 package cecs277TermProject;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -9,8 +11,6 @@ import java.util.Queue;
  * This is the Roach motel. It will use the Singleton design pattern. We will
  * set the capacity and name in the constructor.
  *
- * @author Tyler V
- *
  */
 public class RoachMotel {
 	private volatile static RoachMotel motel; // TODO: [Gust] Use this to implement Singleton pattern
@@ -18,12 +18,15 @@ public class RoachMotel {
 	private Map<RoachColony, Room> occupiedRooms; // This is a map from customer -> room
 	private String name;
 	private int capacity; // This is a dummy variable because it's not used anywhere
+	private Logger logger;
+	
 
 	// TODO: [Gust] Make this constructor private and use it in Singleton pattern
-	public RoachMotel(String name, int capacity) {
+	public RoachMotel(String name, int capacity) throws FileNotFoundException {
 		this.name = name;
 		this.capacity = capacity;
 		this.occupiedRooms = new HashMap<>();
+		this.logger = logger.getLogger();
 
 		// Create Rooms and add them to motel
 		availableRooms = new LinkedList<>();
@@ -37,25 +40,42 @@ public class RoachMotel {
 
 	// TODO: [Gust] Add a parameter for list of amenities
 	public String checkIn(RoachColony roachColony) {
-		// TODO: [Tyler] Implement logging this event here
 		String result = String.format("Checking in: %s\n", roachColony);
+		logger.log(String.format("Colony %1$s attempting to check in.", roachColony));
 		if (availableRooms.isEmpty()) {
+			logger.log(String.format("Colony %1$s failed to check in, no available rooms.", roachColony));
 			return result + "No available room.";
 		}
+		// TODO: [Ly] Implement checkIn validation
+		System.out.printf("Checking in: %s\n", roachColony);
 		Room room = availableRooms.poll();
-
-		// TODO: [Gust] Implement decorator pattern here for amenities before associating the colony with the room
 		occupiedRooms.put(roachColony, room);
+		logger.log(String.format("Successfully Checked In: Colony %1$s checking into %2$s", roachColony, occupiedRooms.get(roachColony)));
 
 		result += "Successfully checking in";
 		return result;
 	}
 
-	public void checkOut(RoachColony roachColony) {
-		// TODO: [Tyler] Implement logging this event here
+	public void checkOut(RoachColony roachColony, PaymentStrategy paymentMethod, int numDays) {
+		logger.log(String.format("Successfully Checked Out: Colony %1$s checking out of %2$s cost: %3$s using %4$s", 
+					roachColony, occupiedRooms.get(roachColony), (occupiedRooms.get(roachColony).getCost() * numDays), paymentMethod));
+		System.out.printf("Checking out: %s\n", roachColony);
 		availableRooms.add(occupiedRooms.remove(roachColony));
-
-		// TODO: [Tyler] Implement payment
+		this.pay(paymentMethod, roachColony, numDays);	
+	}
+	
+	/**
+	 * Will allow a colony to pay for the room upon checkout.  A payment method (RoachPal or MasterRoach) will be passed in through the main method.
+	 * @param paymentMethod  A payment method (RoachPal or MasterRoach) passed in through the main method.
+	 * @param cost The total cost to be paid.
+	 */
+	private String pay(PaymentStrategy paymentMethod, RoachColony colony, int numDays)
+	{
+		Room paidRoom = occupiedRooms.get(colony);
+		// in progress, needs a way to calculate cost from amenities - tyler
+		double cost = paidRoom.getCost() * numDays;
+		//logCheckOut(paymentMethod, colony, numDays, this.logger);
+		return paymentMethod.pay(cost);
 	}
 
 	@Override
