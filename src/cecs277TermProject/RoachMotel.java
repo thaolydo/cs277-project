@@ -60,8 +60,8 @@ public class RoachMotel {
 		logger.log(String.format("Successfully Checked Out: Colony %1$s checking out of %2$s cost: %3$s using %4$s", 
 					roachColony, occupiedRooms.get(roachColony), (occupiedRooms.get(roachColony).getCost() * numDays), paymentMethod));
 		System.out.printf("Checking out: %s\n", roachColony);
-		availableRooms.add(occupiedRooms.remove(roachColony));
 		this.pay(paymentMethod, roachColony, numDays);	
+		availableRooms.add(occupiedRooms.remove(roachColony));
 	}
 	
 	/**
