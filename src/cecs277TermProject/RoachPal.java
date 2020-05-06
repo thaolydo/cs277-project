@@ -20,12 +20,12 @@ public class RoachPal implements PaymentStrategy
 	@Override
 	public String pay(double cost) 
 	{
-		return "Paid $" + cost + "by " + this.toString();
+		return String.format("Paid $ %1$s by " + this.toString(), cost);
 	}
 
 	@Override
 	public String toString()
 	{
-		return "RoachPal. Email: " + email + ".";
+		return String.format("RoachPal - Email: %1$s.", email);
 	}
 }

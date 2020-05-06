@@ -23,7 +23,7 @@ public class MotelRunner {
 			System.out.println(motel);
 			System.out.println();
 
-			motel.checkOut(colony2);
+			//motel.checkOut(colony2);
 			System.out.println(motel);
 			System.out.println();
 

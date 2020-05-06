@@ -12,7 +12,7 @@ public class Logger
 	private volatile static Logger logger;
 	private String filename;
 	private File outFile;
-	private PrintWriter out;
+
 	
 	public Logger getLogger() throws FileNotFoundException
 	{
@@ -34,17 +34,32 @@ public class Logger
 	{
 		this.filename = "roach_motel_log.txt";
 		this.outFile = new File(filename);
-		out = new PrintWriter(outFile);
+		
 	}
 	
 	public void log(String message)
 	{
-		out.println(message);
+		try 
+		{
+			PrintWriter out = new PrintWriter(outFile);
+			out.println(message);
+			out.close();
+		} 
+		catch (FileNotFoundException e) 
+		{
+			System.out.println("File not found exception!");
+		}
+
 	}
 	
 	public String getFilename()
 	{
 		return this.filename;
+	}
+	
+	public File getFile()
+	{
+		return this.outFile;
 	}
 	
 }

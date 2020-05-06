@@ -45,7 +45,10 @@ public class RoachMotel {
 		if (availableRooms.isEmpty()) {
 			return result + "No available room.";
 		}
-
+		logCheckIn(roachColony, this.logger);
+		// Logging should be mostly finished; just need room methods to be finished - Tyler
+		// TODO: [Ly] Implement checkIn validation
+		System.out.printf("Checking in: %s\n", roachColony);
 		Room room = availableRooms.poll();
 
 		// TODO: [Gust] Implement decorator pattern here for amenities before associating the colony with the room
@@ -57,6 +60,9 @@ public class RoachMotel {
 
 	public void checkOut(RoachColony roachColony, PaymentStrategy paymentMethod, int numDays) {
 		// TODO: [Tyler] Implement logging this event here
+		this.logCheckOut(paymentMethod, roachColony, numDays, this.logger);
+		// Logging should be mostly finished; just need room methods to be finished - Tyler
+		System.out.printf("Checking out: %s\n", roachColony);
 		availableRooms.add(occupiedRooms.remove(roachColony));
 		this.pay(paymentMethod, roachColony, numDays);
 		
@@ -72,7 +78,7 @@ public class RoachMotel {
 		Room paidRoom = occupiedRooms.get(colony);
 		// in progress, needs a way to calculate cost from amenities - tyler
 		double cost = paidRoom.getCost() * numDays;
-		logCheckOut(paymentMethod, colony, numDays, this.logger);
+		//logCheckOut(paymentMethod, colony, numDays, this.logger);
 		return paymentMethod.pay(cost);
 	}
 	
@@ -80,17 +86,16 @@ public class RoachMotel {
 	{
 		Room loggedRoom = occupiedRooms.get(colony);
 		
-		log.log("Successfully Checked In: Colony " + colony + "checking into " + loggedRoom + "with amenities [PLACEHOLDER]");
+		log.log(String.format("Successfully Checked In: Colony %1$s checking into %2$s", colony, loggedRoom));
 	}
 	
 	private void logCheckOut(PaymentStrategy paymentMethod, RoachColony colony, int numDays, Logger log)
 	{
 		Room loggedRoom = occupiedRooms.get(colony);
 		
-		log.log("Successfully Checked Out: Colony" + colony + " checking out of " + loggedRoom + " with amenities [PLACEHOLDER] "
-				+ "cost: " + (loggedRoom.getCost() * numDays) + " using " + paymentMethod);
-		
-		
+		log.log(String.format("Successfully Checked In: Colony %1$s checking into %2$s cost: %3$s using %4$s", 
+					colony, loggedRoom, (loggedRoom.getCost() * numDays), paymentMethod));
+	
 	}
 
 	@Override
