@@ -22,7 +22,18 @@ public class RoachMotel {
 	
 
 	// TODO: [Gust] Make this constructor private and use it in Singleton pattern
-	public RoachMotel(String name, int capacity) throws FileNotFoundException {
+	public static RoachMotel getRoachMotel() throws FileNotFoundException {
+		if (motel == null) {
+			synchronized (RoachMotel.class) {
+				if (motel == null) {
+					motel = new RoachMotel("The only roach motel",6);
+				}
+			}
+		}
+		return motel;
+	}
+	// TODO: [Gust] Make this constructor private and use it in Singleton pattern
+	private RoachMotel(String name, int capacity) throws FileNotFoundException {
 		this.name = name;
 		this.capacity = capacity;
 		this.occupiedRooms = new HashMap<>();
