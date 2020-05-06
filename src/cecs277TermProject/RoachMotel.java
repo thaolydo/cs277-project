@@ -37,7 +37,7 @@ public class RoachMotel {
 		this.name = name;
 		this.capacity = capacity;
 		this.occupiedRooms = new HashMap<>();
-		this.logger = logger.getLogger();
+		this.logger = Logger.getLogger();
 
 		// Create Rooms and add them to motel
 		availableRooms = new LinkedList<>();
