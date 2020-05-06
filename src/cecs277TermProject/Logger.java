@@ -17,7 +17,7 @@ public class Logger
 	PrintWriter out;
 
 	
-	public Logger getLogger() throws FileNotFoundException
+	public static Logger getLogger() throws FileNotFoundException
 	{
 		if (Logger.logger == null)
 		{
