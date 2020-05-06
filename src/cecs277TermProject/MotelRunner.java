@@ -23,9 +23,7 @@ public class MotelRunner {
 			System.out.println(motel);
 			System.out.println();
 
-			
-			//When we decide to finish testing everything, this needs to have a payment method added as an argument. - Tyler
-			motel.checkOut(colony2);
+			motel.checkOut(colony2, new RoachPal("Colony2@rmail.com", "aGoodPassword"), 1);
 			System.out.println(motel);
 			System.out.println();
 

@@ -37,26 +37,16 @@ public class Logger
 	{
 		this.filename = "roach_motel_log.txt";
 		this.outFile = new File(filename);
-		PrintWriter out = null;
-		
+		out = new PrintWriter(outFile);
 	}
 	
 	public void log(String message)
 	{
-		try 
-		{
-			Instant time = Instant.now();
-			DateTimeFormatter format = DateTimeFormatter.ofPattern("uuuu-MM-dd HH:mm:ss:SSS");
-			String timestamp = format.format(time);
-			out = new PrintWriter(outFile);
-			out.println(String.format("[%1$s] %2$s", timestamp, message));
-			out.close();
-		} 
-		catch (FileNotFoundException e) 
-		{
-			System.out.println("File not found exception!");
-		}
-
+		Instant time = Instant.now();
+		DateTimeFormatter format = DateTimeFormatter.ofPattern("uuuu-MM-dd HH:mm:ss:SSS");
+		String timestamp = format.format(time);
+		
+		out.println(String.format("[%1$s] %2$s", timestamp, message));
 	}
 	
 	public String getFilename()
@@ -67,6 +57,11 @@ public class Logger
 	public File getFile()
 	{
 		return this.outFile;
+	}
+	
+	public void closeLogger()
+	{
+		out.close();
 	}
 	
 }
