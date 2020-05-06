@@ -43,7 +43,9 @@ public class Logger
 	public void log(String message)
 	{
 		Instant time = Instant.now();
-		DateTimeFormatter format = DateTimeFormatter.ofPattern("uuuu-MM-dd HH:mm:ss:SSS");
+		DateTimeFormatter format = DateTimeFormatter.ofPattern("uuuu-MM-dd HH:mm:ss:SSS")
+			.withLocale( Locale.US )
+			.withZone( ZoneId.of("UTC"));
 		String timestamp = format.format(time);
 		
 		out.println(String.format("[%1$s] %2$s", timestamp, message));
