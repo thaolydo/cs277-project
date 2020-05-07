@@ -28,7 +28,7 @@ public class Logger
 	 * getLogger() is how to access the logger member variable, as in the singleton design pattern.  If logger is null, it will create a new one.
 	 * @return This logger
 	 * @throws FileNotFoundException An invalid file is created.
-	 *
+	 */
 	public static Logger getLogger() throws FileNotFoundException
 	{
 		if (Logger.logger == null)
