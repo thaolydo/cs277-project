@@ -70,6 +70,17 @@ public class RoachMotel {
 		availableRooms.add(occupiedRooms.remove(roachColony));
 	}
 
+	public void spray(RoachColony roachColony) {
+		Room room = occupiedRooms.get(roachColony);
+		logger.log(String.format("Spraying room %s", room));
+		if (room.isSprayResistant()) {
+			roachColony.setPopulation(roachColony.getPopulation() * 3 / 4);
+		} else {
+			roachColony.setPopulation(roachColony.getPopulation() / 2);
+		}
+		logger.log(String.format("%s population after spraying is %d", roachColony, roachColony.getPopulation()));
+	}
+
 	/**
 	 * Will allow a colony to pay for the room upon checkout.  A payment method (RoachPal or MasterRoach) will be passed in through the main method.
 	 * @param paymentMethod  A payment method (RoachPal or MasterRoach) passed in through the main method.
@@ -78,15 +89,15 @@ public class RoachMotel {
 	private String pay(PaymentStrategy paymentMethod, RoachColony colony, int numDays)
 	{
 		Room paidRoom = occupiedRooms.get(colony);
-		// in progress, needs a way to calculate cost from amenities - tyler
 		double cost = paidRoom.getCost() * numDays;
-		//logCheckOut(paymentMethod, colony, numDays, this.logger);
 		return paymentMethod.pay(cost);
 	}
 
 	@Override
 	public String toString() {
-		return String.format("Motel(name=%s, availableRooms=%s, occupiedRooms=%s)", name, availableRooms, occupiedRooms);
+		return String.format("Motel(name=%s, availableRooms=%s, occupiedRooms=%s, vacancySign=%s)", 
+			name, availableRooms, occupiedRooms,
+			availableRooms.isEmpty() ? "No vacancy" : "Vacancy");
 	}
 
 }
