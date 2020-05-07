@@ -16,6 +16,6 @@ public class RoomWithFoodBar  extends Room {
     @Override
     public String toString() {
         
-		return currentRoom.toString() + ",FoodBar";
+		return currentRoom.toString() + ", FoodBar";
     }
 }
