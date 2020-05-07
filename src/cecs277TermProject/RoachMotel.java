@@ -61,19 +61,29 @@ public class RoachMotel {
 		
 		Room room = availableRooms.poll();
 		Room roomAmenity = room ;
-		 for (AmenityType amenity : amenities) {
-		        if (amenity == AmenityType.FOODBAR) {
-		            roomAmenity = new RoomWithFoodBar(roomAmenity);
-		        } else if (amenity == AmenityType.SPA) {
-		            roomAmenity= new RoomWithSpa(roomAmenity);
-		        } else if (amenity == AmenityType.AUTO_REFILL) {
-		            roomAmenity = new RoomWithAutoRefill(room);
-		        } else if (amenity == AmenityType.SPRAY_RESISTANT_SHOWER) {
-		            roomAmenity = new RoomWithSprayResistantShower(roomAmenity);
-		        }
-		    }
+		ArrayList<AmenityType> newList = new ArrayList<AmenityType>(); 
+		for (AmenityType amenity : amenities) {
+			if (!newList.contains(amenity)) { 
+				newList.add(amenity); 
+				if (amenity == AmenityType.FOODBAR) {    
+					roomAmenity = new RoomWithFoodBar(roomAmenity);		        
+				} else if (amenity == AmenityType.SPA) {   
+					roomAmenity= new RoomWithSpa(roomAmenity);
+				} else if (amenity == AmenityType.AUTO_REFILL) {		    
+					roomAmenity = new RoomWithAutoRefill(room);	        
+				} else if (amenity == AmenityType.SPRAY_RESISTANT_SHOWER) {
+					roomAmenity = new RoomWithSprayResistantShower(roomAmenity); 
+				}
+			}
+			else {      
+				System.out.println(
+	                "Whoops seems you opted in for the same Amenity:" + amenity+" Duplicate has been removed");
+	        }
+		}
 		double cost = roomAmenity.getCost();
-		occupiedRooms.put(roachColony, roomAemnity);
+		occupiedRooms.put(roachColony, roomAmenity);
+
+
 		logger.log(String.format("Successfully Checked In: Colony %1$s checking into %2$s", roachColony, occupiedRooms.get(roachColony)));
 
 		result += "Successfully checking in Room Number"+ " "+roomAmenity+" "+
