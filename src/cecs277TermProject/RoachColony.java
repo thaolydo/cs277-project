@@ -1,3 +1,7 @@
+/**
+ * Term project
+ * Name: Ly Do, Gustavo Pech, Tyler Vanlerberghe
+ */
 package cecs277TermProject;
 
 import java.io.FileNotFoundException;
@@ -28,6 +32,11 @@ public class RoachColony {
         this.population = population;
     }
 
+    /**
+     * This method is for the roach colony partying.
+     * 
+     * @throws FileNotFoundException
+     */
     public void party() throws FileNotFoundException {
         population *= GROWTH_RATE;
         RoachMotel motel = RoachMotel.getRoachMotel();

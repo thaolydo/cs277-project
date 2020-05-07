@@ -1,10 +1,22 @@
+/**
+ * Term project
+ * Name: Ly Do, Gustavo Pech, Tyler Vanlerberghe
+ */
 package cecs277TermProject;
 
+/**
+ * This is the base class for Motel room.
+ */
 public abstract class Room {
     private int roomNumber;
     private RoomType type;
     protected boolean sprayResistant;
 
+    /**
+     * Constructor
+     * @param roomNumber roomNumber
+     * @param type type
+     */
     public Room(int roomNumber, RoomType type) {
         this.roomNumber = roomNumber;
         this.setType(type);

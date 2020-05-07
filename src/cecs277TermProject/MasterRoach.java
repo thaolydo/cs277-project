@@ -1,3 +1,7 @@
+/**
+ * Term project
+ * Name: Ly Do, Gustavo Pech, Tyler Vanlerberghe
+ */
 package cecs277TermProject;
 
 public class MasterRoach implements PaymentStrategy
