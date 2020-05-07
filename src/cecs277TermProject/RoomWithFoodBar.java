@@ -29,7 +29,12 @@ public class RoomWithFoodBar extends Room {
 	public double getCost() {
 		return currentRoom.getCost() + 20;
 	}
-
+	
+	 /**
+	 * toString() allows us to print the object as well as details of the
+	 * currentRoom.
+	 * @return details of the amenity as well as details of the room
+	 */
 	@Override
 	public String toString() {
 		return currentRoom.toString() + ", FoodBar";
