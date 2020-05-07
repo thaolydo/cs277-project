@@ -22,11 +22,22 @@ public class RoachMotel {
 	
 
 	// TODO: [Gust] Make this constructor private and use it in Singleton pattern
-	public RoachMotel(String name, int capacity) throws FileNotFoundException {
+	public static RoachMotel getRoachMotel() throws FileNotFoundException {
+		if (motel == null) {
+			synchronized (RoachMotel.class) {
+				if (motel == null) {
+					motel = new RoachMotel("The only roach motel",6);
+				}
+			}
+		}
+		return motel;
+	}
+	// TODO: [Gust] Make this constructor private and use it in Singleton pattern
+	private RoachMotel(String name, int capacity) throws FileNotFoundException {
 		this.name = name;
 		this.capacity = capacity;
 		this.occupiedRooms = new HashMap<>();
-		this.logger = logger.getLogger();
+		this.logger = Logger.getLogger();
 
 		// Create Rooms and add them to motel
 		availableRooms = new LinkedList<>();
@@ -60,8 +71,8 @@ public class RoachMotel {
 		logger.log(String.format("Successfully Checked Out: Colony %1$s checking out of %2$s cost: %3$s using %4$s", 
 					roachColony, occupiedRooms.get(roachColony), (occupiedRooms.get(roachColony).getCost() * numDays), paymentMethod));
 		System.out.printf("Checking out: %s\n", roachColony);
-		availableRooms.add(occupiedRooms.remove(roachColony));
 		this.pay(paymentMethod, roachColony, numDays);	
+		availableRooms.add(occupiedRooms.remove(roachColony));
 	}
 	
 	/**
