@@ -51,28 +51,37 @@ public class RoachMotel {
 	}
 
 	// TODO: [Gust] Add a parameter for list of amenities
-	public String checkIn(RoachColony roachColony) {
+	public String checkIn(RoachColony roachColony, ArrayList<AmenityType>amenities) {
 		String result = String.format("Checking in: %s\n", roachColony);
 		logger.log(String.format("Colony %1$s attempting to check in.", roachColony));
 		if (availableRooms.isEmpty()) {
 			logger.log(String.format("Colony %1$s failed to check in, no available rooms.", roachColony));
 			return result + "No available room.";
 		}
+		
 		Room room = availableRooms.poll();
-		occupiedRooms.put(roachColony, room);
+		Room roomAmenity = room ;
+		 for (AmenityType amenity : amenities) {
+		        if (amenity == AmenityType.FOODBAR) {
+		            roomAmenity = new RoomWithFoodBar(roomAmenity);
+		        } else if (amenity == AmenityType.SPA) {
+		            roomAmenity= new RoomWithSpa(roomAmenity);
+		        } else if (amenity == AmenityType.AUTO_REFILL) {
+		            roomAmenity = new RoomWithAutoRefill(room);
+		        } else if (amenity == AmenityType.SPRAY_RESISTANT_SHOWER) {
+		            roomAmenity = new RoomWithSprayResistantShower(roomAmenity);
+		        }
+		    }
+		double cost = roomAmenity.getCost();
+		occupiedRooms.put(roachColony, roomAemnity);
 		logger.log(String.format("Successfully Checked In: Colony %1$s checking into %2$s", roachColony, occupiedRooms.get(roachColony)));
 
-		result += "Successfully checking in";
+		result += "Successfully checking in Room Number"+ " "+roomAmenity+" "+
+		" \nTotal Cost:"+cost;
 		return result;
 	}
 
-	/**
-	 * This method is to checkout the given roach colony.
-	 * 
-	 * @param roachColony roach colony
-	 * @param paymentMethod payment method
-	 * @param numDays number of day stayed
-	 */
+
 	public void checkOut(RoachColony roachColony, PaymentStrategy paymentMethod, int numDays) {
 		logger.log(String.format("Successfully Checked Out: Colony %1$s checking out of %2$s cost: %3$s using %4$s",
 					roachColony, occupiedRooms.get(roachColony), (occupiedRooms.get(roachColony).getCost() * numDays), paymentMethod));
