@@ -3,7 +3,6 @@ package cecs277TermProject;
 public abstract class Room {
     private int roomNumber;
     private RoomType type;
-    private double baseRate;
 
     public Room(int roomNumber, RoomType type) {
         this.roomNumber = roomNumber;
@@ -12,7 +11,7 @@ public abstract class Room {
 
 
     public abstract double getCost();
-    
+
 
     @Override
     public String toString() {
@@ -33,11 +32,4 @@ public abstract class Room {
 		this.type = type;
 	}
 
-	public double getBaseRate() {
-		return this.baseRate;
-	}
-
-	public void setBaseRate(double baseRate) {
-		this.baseRate = baseRate;
-	}
 }

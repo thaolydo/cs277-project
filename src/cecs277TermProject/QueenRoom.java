@@ -5,11 +5,10 @@ public class QueenRoom extends Room {
 
     public QueenRoom(int roomNumber, RoomType type) {
         super(roomNumber, type);
-        this.baseRate = BASE_RATE;
     }
 
     @Override
     public double getCost() {
-        return baseRate;
+        return BASE_RATE;
     }
 }
