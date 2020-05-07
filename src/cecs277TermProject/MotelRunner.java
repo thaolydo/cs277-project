@@ -51,23 +51,35 @@ public class MotelRunner {
 			System.out.println(motel);
 			System.out.println();
 
+			colony3.party();
+			motel.checkOut(colony3, new RoachPal("Colony3@rmail.com", "aGoodPassword"), 2);
+			System.out.println(motel);
+			System.out.println();
+
 			RoachColony colony8 = new RoachColony("Eighth colony", 100);
 			System.out.println(motel.checkIn(colony8));
 			System.out.println(motel);
 
 			// Printing the log
-			Logger log = Logger.getLogger();
-			log.closeLogger();
-			Scanner scanner = new Scanner(log.getFile());
-			while (scanner.hasNextLine()) {
-				System.out.println(scanner.nextLine());
-			}
-			scanner.close();
+			printLog();
+
 		}//End of try block//
 		catch(FileNotFoundException e)
 		{
 			System.out.println("File not found exception!");
 		}
+	}
+
+	private static void printLog() throws FileNotFoundException {
+		System.out.println();
+		System.out.println("Printing out the log file.");
+		Logger log = Logger.getLogger();
+		log.closeLogger();
+		Scanner scanner = new Scanner(log.getFile());
+		while (scanner.hasNextLine()) {
+			System.out.println(scanner.nextLine());
+		}
+		scanner.close();
 	}
 
 }

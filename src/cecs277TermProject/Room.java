@@ -3,12 +3,13 @@ package cecs277TermProject;
 public abstract class Room {
     private int roomNumber;
     private RoomType type;
+    protected boolean sprayResistant;
 
     public Room(int roomNumber, RoomType type) {
         this.roomNumber = roomNumber;
         this.setType(type);
+        this.sprayResistant = false;
     }
-
 
     public abstract double getCost();
 
@@ -30,6 +31,10 @@ public abstract class Room {
 
 	public void setType(RoomType type) {
 		this.type = type;
-	}
+    }
+    
+    public boolean isSprayResistant() {
+        return sprayResistant;
+    }
 
 }

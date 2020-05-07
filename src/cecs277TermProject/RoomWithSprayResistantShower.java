@@ -4,7 +4,7 @@ public class RoomWithSprayResistantShower extends Room{
 	public RoomWithSprayResistantShower(Room currentRoom) {
 		super(currentRoom.getRoomNumber(),currentRoom.getType());
 		this.currentRoom = currentRoom;
-
+		this.sprayResistant = true;
 	}
 	
 	@Override
