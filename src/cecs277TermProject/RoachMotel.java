@@ -48,20 +48,36 @@ public class RoachMotel {
 	}
 
 	// TODO: [Gust] Add a parameter for list of amenities
-	public String checkIn(RoachColony roachColony) {
+public String checkIn(RoachColony roachColony, ArrayList<AmenityType>amenities) {
 		String result = String.format("Checking in: %s\n", roachColony);
 		logger.log(String.format("Colony %1$s attempting to check in.", roachColony));
 		if (availableRooms.isEmpty()) {
 			logger.log(String.format("Colony %1$s failed to check in, no available rooms.", roachColony));
 			return result + "No available room.";
 		}
+		
 		Room room = availableRooms.poll();
+		Room roomAmenity = room ;
+		 for (AmenityType amenity : amenities) {
+		        if (amenity == AmenityType.FOODBAR) {
+		            roomAmenity = new RoomWithFoodBar(roomAmenity);
+		        } else if (amenity == AmenityType.SPA) {
+		            roomAmenity= new RoomWithSpa(roomAmenity);
+		        } else if (amenity == AmenityType.AUTO_REFILL) {
+		            roomAmenity = new RoomWithAutoRefill(room);
+		        } else if (amenity == AmenityType.SPRAY_RESISTANT_SHOWER) {
+		            roomAmenity = new RoomWithSprayResistantShower(roomAmenity);
+		        }
+		    }
+		double cost = roomAmenity.getCost();
 		occupiedRooms.put(roachColony, room);
 		logger.log(String.format("Successfully Checked In: Colony %1$s checking into %2$s", roachColony, occupiedRooms.get(roachColony)));
 
-		result += "Successfully checking in";
+		result += "Successfully checking in Room Number"+ " "+roomAmenity+" "+
+		" \nTotal Cost:"+cost;
 		return result;
 	}
+
 
 	public void checkOut(RoachColony roachColony, PaymentStrategy paymentMethod, int numDays) {
 		logger.log(String.format("Successfully Checked Out: Colony %1$s checking out of %2$s cost: %3$s using %4$s",
