@@ -1,5 +1,9 @@
 package cecs277TermProject;
 
+
+/**
+ * RoachPal is a fancy new way for roaches to pay for all manner of things using the internet.  It is one of two payment methods the motel accepts.
+ */
 public class RoachPal implements PaymentStrategy
 {
 	private String email;
@@ -10,9 +14,7 @@ public class RoachPal implements PaymentStrategy
 		this.email = email;
 		this.password = password;
 	}
-	
-	
-	
+
 	/**
 	 * Payment method by RoachPal card
 	 * @return a message detailing payment method.
