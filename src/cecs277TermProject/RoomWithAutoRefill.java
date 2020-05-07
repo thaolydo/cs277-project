@@ -16,6 +16,6 @@ public class RoomWithAutoRefill  extends Room {
  @Override
  public String toString() {
      
-		return currentRoom.toString() + ",Food Bar AutoRefill";
+		return currentRoom.toString() + ", Food Bar AutoRefill";
  }
 }

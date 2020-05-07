@@ -20,6 +20,6 @@ public class RoomWithSpa  extends Room {
     @Override
     public String toString() {
         
-		return currentRoom.toString() + ",Spa";
+		return currentRoom.toString() + ", Spa";
     }
 }
