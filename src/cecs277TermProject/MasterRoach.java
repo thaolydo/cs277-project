@@ -1,5 +1,12 @@
+/**
+ * Term project
+ * Name: Ly Do, Gustavo Pech, Tyler Vanlerberghe
+ */
 package cecs277TermProject;
 
+/**
+ * MasterRoach is meant to be a credit card just for roaches.  It is one of two payment methods the motel accepts.
+ */
 public class MasterRoach implements PaymentStrategy
 {
 
