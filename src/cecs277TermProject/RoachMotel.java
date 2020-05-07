@@ -94,7 +94,7 @@ public class RoachMotel {
                     room = new RoomWithSprayResistantShower(room);
                 }
             } else {
-                System.out.println(
+                result += (
                         "Whoops seems you opted in for the same Amenity:" + amenity + " Duplicate has been removed");
             }
         }
