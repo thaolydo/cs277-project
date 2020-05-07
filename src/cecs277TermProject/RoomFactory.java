@@ -11,9 +11,9 @@ public class RoomFactory {
 
     /**
      * This method is to create room instances.
-     * 
+     *
      * @param roomNumber roomNumber
-     * @param roomType roomType
+     * @param roomType   roomType
      * @return new room instances
      */
     public static Room createRoom(int roomNumber, RoomType roomType) {
@@ -25,7 +25,8 @@ public class RoomFactory {
             return new QueenRoom(roomNumber, roomType);
         } else if (roomType == RoomType.SUITE) {
             return new SuiteRoom(roomNumber, roomType);
-        } else
+        } else {
             return null;
+        }
     }
 }

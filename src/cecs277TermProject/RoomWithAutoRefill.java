@@ -4,22 +4,30 @@
  */
 package cecs277TermProject;
 
-public class RoomWithAutoRefill  extends Room {
-	 Room currentRoom;
-	 public RoomWithAutoRefill(Room currentRoom){
-		 super(currentRoom.getRoomNumber(),currentRoom.getType());
-		this.currentRoom = currentRoom;
+/**
+ * Room with auto refill amenity.
+ */
+public class RoomWithAutoRefill extends Room {
+	Room currentRoom;
 
+	/**
+	 * Constructor.
+	 *
+	 * @param currentRoom the room to be decorated.
+	 */
+	public RoomWithAutoRefill(Room currentRoom) {
+		super(currentRoom.getRoomNumber(), currentRoom.getType());
+		this.currentRoom = currentRoom;
+		this.sprayResistant = currentRoom.isSprayResistant();
 	}
-	
+
 	@Override
 	public double getCost() {
 		return currentRoom.getCost() + 20;
 	}
-	
- @Override
- public String toString() {
-     
-		return currentRoom.toString() + ", Food Bar AutoRefill";
- }
+
+	@Override
+	public String toString() {
+		return currentRoom.toString() + ", AutoRefill";
+	}
 }

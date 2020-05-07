@@ -1,0 +1,72 @@
+Checking in: First colony
+Successfully checking in Room Number 101, AutoRefill, Spa
+Total Cost:140.0
+Motel(name=The only roach motel, availableRooms=[102, 103, 104, 105, 106], occupiedRooms={First colony=101, AutoRefill, Spa}, vacancySign=Vacancy)
+
+Checking in: Second colony
+Successfully checking in Room Number 102, AutoRefill, FoodBar
+Total Cost:140.0
+Motel(name=The only roach motel, availableRooms=[103, 104, 105, 106], occupiedRooms={First colony=101, AutoRefill, Spa, Second colony=102, AutoRefill, FoodBar}, vacancySign=Vacancy)
+
+Checking out Second colony
+Motel(name=The only roach motel, availableRooms=[103, 104, 105, 106, 102], occupiedRooms={First colony=101, AutoRefill, Spa}, vacancySign=Vacancy)
+
+Checking in: Third colony
+Successfully checking in Room Number 103, Spray Resistant Shower, AutoRefill
+Total Cost:140.0
+Motel(name=The only roach motel, availableRooms=[104, 105, 106, 102], occupiedRooms={First colony=101, AutoRefill, Spa, Third colony=103, Spray Resistant Shower, AutoRefill}, vacancySign=Vacancy)
+
+Checking in: Fourth colony
+Successfully checking in Room Number 104
+Total Cost:125.0
+Motel(name=The only roach motel, availableRooms=[105, 106, 102], occupiedRooms={First colony=101, AutoRefill, Spa, Fourth colony=104, Third colony=103, Spray Resistant Shower, AutoRefill}, vacancySign=Vacancy)
+
+Checking in: Fifth colony
+Successfully checking in Room Number 105
+Total Cost:200.0
+Motel(name=The only roach motel, availableRooms=[106, 102], occupiedRooms={Fifth colony=105, First colony=101, AutoRefill, Spa, Fourth colony=104, Third colony=103, Spray Resistant Shower, AutoRefill}, vacancySign=Vacancy)
+
+Checking in: Sixth colony
+Successfully checking in Room Number 106
+Total Cost:100.0
+Motel(name=The only roach motel, availableRooms=[102], occupiedRooms={Fifth colony=105, First colony=101, AutoRefill, Spa, Sixth colony=106, Fourth colony=104, Third colony=103, Spray Resistant Shower, AutoRefill}, vacancySign=Vacancy)
+
+Checking in: Seventh colony
+Successfully checking in Room Number 102, Spray Resistant Shower, Spa
+Total Cost:140.0
+Motel(name=The only roach motel, availableRooms=[], occupiedRooms={Fifth colony=105, First colony=101, AutoRefill, Spa, Sixth colony=106, Fourth colony=104, Seventh colony=102, Spray Resistant Shower, Spa, Third colony=103, Spray Resistant Shower, AutoRefill}, vacancySign=No vacancy)
+
+Third colony is partying
+Third colony population after partying is 112
+Sixth colony is partying
+Sixth colony population after partying is 75
+Motel(name=The only roach motel, availableRooms=[103], occupiedRooms={Fifth colony=105, First colony=101, AutoRefill, Spa, Sixth colony=106, Fourth colony=104, Seventh colony=102, Spray Resistant Shower, Spa}, vacancySign=Vacancy)
+
+Checking in: Eighth colony
+Successfully checking in Room Number 103, Spray Resistant Shower, FoodBar
+Total Cost:140.0
+Motel(name=The only roach motel, availableRooms=[], occupiedRooms={Eighth colony=103, Spray Resistant Shower, FoodBar, Fifth colony=105, First colony=101, AutoRefill, Spa, Sixth colony=106, Fourth colony=104, Seventh colony=102, Spray Resistant Shower, Spa}, vacancySign=No vacancy)
+
+Printing out the log file.
+[2020-05-07 20:20:19:331] Colony First colony attempting to check in.
+[2020-05-07 20:20:19:389] Successfully Checked In: Colony First colony checking into 101, AutoRefill, Spa
+[2020-05-07 20:20:19:393] Colony Second colony attempting to check in.
+[2020-05-07 20:20:19:393] Successfully Checked In: Colony Second colony checking into 102, AutoRefill, FoodBar
+[2020-05-07 20:20:19:395] Successfully Checked Out: Colony Second colony checking out of 102, AutoRefill, FoodBar cost: 140.0 using RoachPal - Email: Colony2@rmail.com.
+[2020-05-07 20:20:19:396] Colony Third colony attempting to check in.
+[2020-05-07 20:20:19:396] Successfully Checked In: Colony Third colony checking into 103, Spray Resistant Shower, AutoRefill
+[2020-05-07 20:20:19:397] Colony Fourth colony attempting to check in.
+[2020-05-07 20:20:19:398] Successfully Checked In: Colony Fourth colony checking into 104
+[2020-05-07 20:20:19:398] Colony Fifth colony attempting to check in.
+[2020-05-07 20:20:19:399] Successfully Checked In: Colony Fifth colony checking into 105
+[2020-05-07 20:20:19:399] Colony Sixth colony attempting to check in.
+[2020-05-07 20:20:19:399] Successfully Checked In: Colony Sixth colony checking into 106
+[2020-05-07 20:20:19:400] Colony Seventh colony attempting to check in.
+[2020-05-07 20:20:19:400] Successfully Checked In: Colony Seventh colony checking into 102, Spray Resistant Shower, Spa
+[2020-05-07 20:20:19:401] Spraying room 103, Spray Resistant Shower, AutoRefill
+[2020-05-07 20:20:19:401] Third colony population after spraying is 112
+[2020-05-07 20:20:19:402] Spraying room 106
+[2020-05-07 20:20:19:402] Sixth colony population after spraying is 75
+[2020-05-07 20:20:19:402] Successfully Checked Out: Colony Third colony checking out of 103, Spray Resistant Shower, AutoRefill cost: 280.0 using RoachPal - Email: Colony3@rmail.com.
+[2020-05-07 20:20:19:403] Colony Eighth colony attempting to check in.
+[2020-05-07 20:20:19:403] Successfully Checked In: Colony Eighth colony checking into 103, Spray Resistant Shower, FoodBar

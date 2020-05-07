@@ -1,17 +1,22 @@
-[2020-05-07 07:28:55:397] Colony First colony attempting to check in.
-[2020-05-07 07:28:55:451] Successfully Checked In: Colony First colony checking into 101
-[2020-05-07 07:28:55:452] Colony Second colony attempting to check in.
-[2020-05-07 07:28:55:453] Successfully Checked In: Colony Second colony checking into 102
-[2020-05-07 07:28:55:469] Successfully Checked Out: Colony Second colony checking out of 102 cost: 100.0 using RoachPal - Email: Colony2@rmail.com.
-[2020-05-07 07:28:55:470] Colony Third colony attempting to check in.
-[2020-05-07 07:28:55:470] Successfully Checked In: Colony Third colony checking into 103
-[2020-05-07 07:28:55:471] Colony Fourth colony attempting to check in.
-[2020-05-07 07:28:55:471] Successfully Checked In: Colony Fourth colony checking into 104
-[2020-05-07 07:28:55:471] Colony Fifth colony attempting to check in.
-[2020-05-07 07:28:55:471] Successfully Checked In: Colony Fifth colony checking into 105
-[2020-05-07 07:28:55:472] Colony Sixth colony attempting to check in.
-[2020-05-07 07:28:55:472] Successfully Checked In: Colony Sixth colony checking into 106
-[2020-05-07 07:28:55:472] Colony Seventh colony attempting to check in.
-[2020-05-07 07:28:55:473] Successfully Checked In: Colony Seventh colony checking into 102
-[2020-05-07 07:28:55:473] Colony Eighth colony attempting to check in.
-[2020-05-07 07:28:55:473] Colony Eighth colony failed to check in, no available rooms.
+[2020-05-07 20:20:19:331] Colony First colony attempting to check in.
+[2020-05-07 20:20:19:389] Successfully Checked In: Colony First colony checking into 101, AutoRefill, Spa
+[2020-05-07 20:20:19:393] Colony Second colony attempting to check in.
+[2020-05-07 20:20:19:393] Successfully Checked In: Colony Second colony checking into 102, AutoRefill, FoodBar
+[2020-05-07 20:20:19:395] Successfully Checked Out: Colony Second colony checking out of 102, AutoRefill, FoodBar cost: 140.0 using RoachPal - Email: Colony2@rmail.com.
+[2020-05-07 20:20:19:396] Colony Third colony attempting to check in.
+[2020-05-07 20:20:19:396] Successfully Checked In: Colony Third colony checking into 103, Spray Resistant Shower, AutoRefill
+[2020-05-07 20:20:19:397] Colony Fourth colony attempting to check in.
+[2020-05-07 20:20:19:398] Successfully Checked In: Colony Fourth colony checking into 104
+[2020-05-07 20:20:19:398] Colony Fifth colony attempting to check in.
+[2020-05-07 20:20:19:399] Successfully Checked In: Colony Fifth colony checking into 105
+[2020-05-07 20:20:19:399] Colony Sixth colony attempting to check in.
+[2020-05-07 20:20:19:399] Successfully Checked In: Colony Sixth colony checking into 106
+[2020-05-07 20:20:19:400] Colony Seventh colony attempting to check in.
+[2020-05-07 20:20:19:400] Successfully Checked In: Colony Seventh colony checking into 102, Spray Resistant Shower, Spa
+[2020-05-07 20:20:19:401] Spraying room 103, Spray Resistant Shower, AutoRefill
+[2020-05-07 20:20:19:401] Third colony population after spraying is 112
+[2020-05-07 20:20:19:402] Spraying room 106
+[2020-05-07 20:20:19:402] Sixth colony population after spraying is 75
+[2020-05-07 20:20:19:402] Successfully Checked Out: Colony Third colony checking out of 103, Spray Resistant Shower, AutoRefill cost: 280.0 using RoachPal - Email: Colony3@rmail.com.
+[2020-05-07 20:20:19:403] Colony Eighth colony attempting to check in.
+[2020-05-07 20:20:19:403] Successfully Checked In: Colony Eighth colony checking into 103, Spray Resistant Shower, FoodBar

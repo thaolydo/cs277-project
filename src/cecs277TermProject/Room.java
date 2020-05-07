@@ -13,9 +13,10 @@ public abstract class Room {
     protected boolean sprayResistant;
 
     /**
-     * Constructor
+     * Constructor.
+     *
      * @param roomNumber roomNumber
-     * @param type type
+     * @param type       type
      */
     public Room(int roomNumber, RoomType type) {
         this.roomNumber = roomNumber;
@@ -25,26 +26,28 @@ public abstract class Room {
 
     public abstract double getCost();
 
-
     @Override
     public String toString() {
         return String.format("%d", roomNumber);
     }
 
-
-	public int getRoomNumber() {
-		return this.roomNumber;
-	}
-
-
-	public RoomType getType() {
-		return this.type;
-	}
-
-	public void setType(RoomType type) {
-		this.type = type;
+    public int getRoomNumber() {
+        return this.roomNumber;
     }
-    
+
+    public RoomType getType() {
+        return this.type;
+    }
+
+    public void setType(RoomType type) {
+        this.type = type;
+    }
+
+    /**
+     * Determine if the room has spray resistant shower.
+     *
+     * @return true if the room has spray resistant shower.
+     */
     public boolean isSprayResistant() {
         return sprayResistant;
     }

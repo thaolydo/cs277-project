@@ -12,8 +12,9 @@ public class KingRoom extends Room {
 
     /**
      * Constructor
+     *
      * @param roomNumber roomNumber
-     * @param type type
+     * @param type       type
      */
     public KingRoom(int roomNumber, RoomType type) {
         super(roomNumber, type);

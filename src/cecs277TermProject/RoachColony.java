@@ -6,6 +6,9 @@ package cecs277TermProject;
 
 import java.io.FileNotFoundException;
 
+/**
+ * Roach colony class.
+ */
 public class RoachColony {
     private static final double GROWTH_RATE = 1.5;
     private String name;
@@ -34,7 +37,7 @@ public class RoachColony {
 
     /**
      * This method is for the roach colony partying.
-     * 
+     *
      * @throws FileNotFoundException
      */
     public void party() throws FileNotFoundException {
@@ -45,7 +48,6 @@ public class RoachColony {
 
     @Override
     public String toString() {
-        // return String.format("RoachColony(name=%s, population=%d)", name, population);
         return name;
     }
 }

@@ -11,9 +11,10 @@ public class BasicRoom extends Room {
     private static final double BASE_RATE = 100;
 
     /**
-     * Constructor
+     * Constructor.
+     *
      * @param roomNumber roomNumber
-     * @param type type
+     * @param type       type
      */
     public BasicRoom(int roomNumber, RoomType type) {
         super(roomNumber, type);
