@@ -48,7 +48,7 @@ public class RoachMotel {
 	}
 
 	// TODO: [Gust] Add a parameter for list of amenities
-public String checkIn(RoachColony roachColony, ArrayList<AmenityType>amenities) {
+	public String checkIn(RoachColony roachColony, ArrayList<AmenityType>amenities) {
 		String result = String.format("Checking in: %s\n", roachColony);
 		logger.log(String.format("Colony %1$s attempting to check in.", roachColony));
 		if (availableRooms.isEmpty()) {
@@ -70,7 +70,7 @@ public String checkIn(RoachColony roachColony, ArrayList<AmenityType>amenities) 
 		        }
 		    }
 		double cost = roomAmenity.getCost();
-		occupiedRooms.put(roachColony, room);
+		occupiedRooms.put(roachColony, roomAemnity);
 		logger.log(String.format("Successfully Checked In: Colony %1$s checking into %2$s", roachColony, occupiedRooms.get(roachColony)));
 
 		result += "Successfully checking in Room Number"+ " "+roomAmenity+" "+
