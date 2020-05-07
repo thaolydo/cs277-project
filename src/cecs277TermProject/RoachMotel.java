@@ -13,7 +13,6 @@ import java.util.Queue;
 /**
  * This is the Roach motel. It will use the Singleton design pattern. We will
  * set the capacity and name in the constructor.
- *
  */
 public class RoachMotel {
 	private volatile static RoachMotel motel; // TODO: [Gust] Use this to implement Singleton pattern
