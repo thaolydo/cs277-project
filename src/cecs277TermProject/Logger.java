@@ -37,8 +37,7 @@ public class Logger
 		}
 		return Logger.logger;
 	}
-	
-	
+
 	private Logger() throws FileNotFoundException
 	{
 		this.filename = "roach_motel_log.txt";
@@ -46,12 +45,10 @@ public class Logger
 		out = new PrintWriter(outFile);
 	}
 
-
 	/**
 	 * Writes an entry to the log, prefaced by a timestamp of when it was written.  Any message can be passed in here.
 	 * @param message The message to write out to the log.
 	 */
-
 	public void log(String message)
 	{
 		Instant time = Instant.now();
@@ -65,7 +62,6 @@ public class Logger
 	 * Gets the filename of the output file.
 	 * @return file name of the output file.
 	 */
-
 	public String getFilename()
 	{
 		return this.filename;
@@ -75,7 +71,6 @@ public class Logger
 	 * Gets the file object of the output file itself.
 	 * @return The output file itself.
 	 */
-
 	public File getFile()
 	{
 		return this.outFile;
