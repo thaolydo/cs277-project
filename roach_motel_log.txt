@@ -1,0 +1,17 @@
+[2020-05-07 07:28:55:397] Colony First colony attempting to check in.
+[2020-05-07 07:28:55:451] Successfully Checked In: Colony First colony checking into 101
+[2020-05-07 07:28:55:452] Colony Second colony attempting to check in.
+[2020-05-07 07:28:55:453] Successfully Checked In: Colony Second colony checking into 102
+[2020-05-07 07:28:55:469] Successfully Checked Out: Colony Second colony checking out of 102 cost: 100.0 using RoachPal - Email: Colony2@rmail.com.
+[2020-05-07 07:28:55:470] Colony Third colony attempting to check in.
+[2020-05-07 07:28:55:470] Successfully Checked In: Colony Third colony checking into 103
+[2020-05-07 07:28:55:471] Colony Fourth colony attempting to check in.
+[2020-05-07 07:28:55:471] Successfully Checked In: Colony Fourth colony checking into 104
+[2020-05-07 07:28:55:471] Colony Fifth colony attempting to check in.
+[2020-05-07 07:28:55:471] Successfully Checked In: Colony Fifth colony checking into 105
+[2020-05-07 07:28:55:472] Colony Sixth colony attempting to check in.
+[2020-05-07 07:28:55:472] Successfully Checked In: Colony Sixth colony checking into 106
+[2020-05-07 07:28:55:472] Colony Seventh colony attempting to check in.
+[2020-05-07 07:28:55:473] Successfully Checked In: Colony Seventh colony checking into 102
+[2020-05-07 07:28:55:473] Colony Eighth colony attempting to check in.
+[2020-05-07 07:28:55:473] Colony Eighth colony failed to check in, no available rooms.

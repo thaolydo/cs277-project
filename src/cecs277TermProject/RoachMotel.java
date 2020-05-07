@@ -1,3 +1,7 @@
+/**
+ * Term project
+ * Name: Ly Do, Gustavo Pech, Tyler Vanlerberghe
+ */
 package cecs277TermProject;
 
 import java.io.FileNotFoundException;
@@ -9,7 +13,6 @@ import java.util.Queue;
 /**
  * This is the Roach motel. It will use the Singleton design pattern. We will
  * set the capacity and name in the constructor.
- *
  */
 public class RoachMotel {
 	private volatile static RoachMotel motel; // TODO: [Gust] Use this to implement Singleton pattern
@@ -78,13 +81,16 @@ public class RoachMotel {
 	        }
 		}
 		double cost = roomAmenity.getCost();
-		occupiedRooms.put(roachColony, room);
+		occupiedRooms.put(roachColony, roomAmenity);
+
+
 		logger.log(String.format("Successfully Checked In: Colony %1$s checking into %2$s", roachColony, occupiedRooms.get(roachColony)));
 
 		result += "Successfully checking in Room Number"+ " "+roomAmenity+" "+
 		" \nTotal Cost:"+cost;
 		return result;
 	}
+
 
 	public void checkOut(RoachColony roachColony, PaymentStrategy paymentMethod, int numDays) {
 		logger.log(String.format("Successfully Checked Out: Colony %1$s checking out of %2$s cost: %3$s using %4$s",
@@ -93,6 +99,11 @@ public class RoachMotel {
 		availableRooms.add(occupiedRooms.remove(roachColony));
 	}
 
+	/**
+	 * Spray the room given the roach colony.
+	 * 
+	 * @param roachColony the roach colony
+	 */
 	public void spray(RoachColony roachColony) {
 		Room room = occupiedRooms.get(roachColony);
 		logger.log(String.format("Spraying room %s", room));
