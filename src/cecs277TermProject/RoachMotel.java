@@ -1,3 +1,7 @@
+/**
+ * Term project
+ * Name: Ly Do, Gustavo Pech, Tyler Vanlerberghe
+ */
 package cecs277TermProject;
 
 import java.io.FileNotFoundException;
@@ -63,6 +67,13 @@ public class RoachMotel {
 		return result;
 	}
 
+	/**
+	 * This method is to checkout the given roach colony.
+	 * 
+	 * @param roachColony roach colony
+	 * @param paymentMethod payment method
+	 * @param numDays number of day stayed
+	 */
 	public void checkOut(RoachColony roachColony, PaymentStrategy paymentMethod, int numDays) {
 		logger.log(String.format("Successfully Checked Out: Colony %1$s checking out of %2$s cost: %3$s using %4$s",
 					roachColony, occupiedRooms.get(roachColony), (occupiedRooms.get(roachColony).getCost() * numDays), paymentMethod));
@@ -70,6 +81,11 @@ public class RoachMotel {
 		availableRooms.add(occupiedRooms.remove(roachColony));
 	}
 
+	/**
+	 * Spray the room given the roach colony.
+	 * 
+	 * @param roachColony the roach colony
+	 */
 	public void spray(RoachColony roachColony) {
 		Room room = occupiedRooms.get(roachColony);
 		logger.log(String.format("Spraying room %s", room));
