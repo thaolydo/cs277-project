@@ -14,6 +14,6 @@ public class RoomWithSprayResistantShower extends Room{
 	
     @Override
     public String toString() {  
-		return currentRoom.toString() + ",Spray Resistant Shower";
+		return currentRoom.toString() + ", Spray Resistant Shower";
     }
 }
